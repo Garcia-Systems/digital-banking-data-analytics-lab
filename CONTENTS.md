@@ -1,6 +1,6 @@
 # Contents
 
-Chapters 0–22 are implemented and Parts I–V are complete. Chapter 23 remains the planned capstone.
+All 24 chapters and Parts I–VI are implemented as a completed executable textbook.
 
 ## Part I — Thinking Like an Analytics-Driven Engineer
 
@@ -42,6 +42,6 @@ Chapters 0–22 are implemented and Parts I–V are complete. Chapter 23 remains
 
 ## Part VI — Capstone
 
-23. The Harbor Federal Digital Experience Investigation
+23. [The Harbor Federal Digital Experience Investigation](chapters/23-the-harbor-federal-digital-experience-investigation.md)
 
-The future capstone begins: **Digital account-opening completion has declined. Find out why.** It will require investigation across experience events, funnel stages, devices, APIs, and vendor evidence. Part V supplies decision tools; Chapter 23 remains intentionally unimplemented and will not disclose its answer up front.
+The final capstone begins: **Digital account-opening completion has declined. Find out why.** Investigate before opening the separately linked review.
