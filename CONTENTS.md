@@ -1,13 +1,13 @@
 # Contents
 
-Only Chapter 0 is implemented in this foundation. Later titles are the planned roadmap, not placeholder chapters.
+Chapters 0–3 are implemented. Later titles are the planned roadmap, not placeholder chapters.
 
 ## Part I — Thinking Like an Analytics-Driven Engineer
 
 0. [From Application Data to Engineering Decisions](chapters/00-from-application-data-to-engineering-decisions.md)
-1. The Harbor Federal Analytics Ecosystem
-2. Metrics, Dimensions, Events, and KPIs
-3. Asking Questions the Data Can Actually Answer
+1. [The Harbor Federal Analytics Ecosystem](chapters/01-the-harbor-federal-analytics-ecosystem.md)
+2. [Metrics, Dimensions, Events, and KPIs](chapters/02-metrics-dimensions-events-and-kpis.md)
+3. [Asking Questions the Data Can Actually Answer](chapters/03-asking-questions-data-can-answer.md)
 
 ## Part II — Getting Answers From Banking Data
 
@@ -45,4 +45,3 @@ Only Chapter 0 is implemented in this foundation. Later titles are the planned r
 23. The Harbor Federal Digital Experience Investigation
 
 The future capstone begins: **Digital account-opening completion has declined. Find out why.** It will require investigation across experience events, funnel stages, devices, APIs, and vendor evidence. It is intentionally not implemented yet.
-
