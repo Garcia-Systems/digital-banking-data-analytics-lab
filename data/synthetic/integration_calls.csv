@@ -1,0 +1,27 @@
+integration_request_id,correlation_id,timestamp,provider,operation,outcome,provider_status,duration_ms,attempt_number,retryable,period
+int-0001-1,corr-0001,2025-01-19T13:00:00Z,Beacon Identity Labs,identity_verification,success,verified,151,1,false,baseline
+int-0002-1,corr-0002,2025-01-19T13:01:00Z,Beacon Identity Labs,identity_verification,success,verified,152,1,false,baseline
+int-0003-1,corr-0003,2025-01-19T13:02:00Z,Beacon Identity Labs,identity_verification,success,verified,153,1,false,baseline
+int-0004-1,corr-0004,2025-01-19T13:03:00Z,Beacon Identity Labs,identity_verification,success,verified,154,1,false,baseline
+int-0005-1,corr-0005,2025-01-19T13:04:00Z,Beacon Identity Labs,identity_verification,success,verified,155,1,false,baseline
+int-0006-1,corr-0006,2025-01-19T13:05:00Z,Beacon Identity Labs,identity_verification,success,verified,156,1,false,baseline
+int-0007-1,corr-0007,2025-01-19T13:06:00Z,Beacon Identity Labs,identity_verification,success,verified,157,1,false,baseline
+int-0008-1,corr-0008,2025-01-19T13:07:00Z,Beacon Identity Labs,identity_verification,success,verified,158,1,false,baseline
+int-0009-1,corr-0009,2025-01-19T13:08:00Z,Beacon Identity Labs,identity_verification,success,verified,159,1,false,baseline
+int-0010-1,corr-0010,2025-01-19T13:09:00Z,Beacon Identity Labs,identity_verification,success,verified,160,1,false,baseline
+int-0011-1,corr-0011,2025-01-20T13:00:00Z,Beacon Identity Labs,identity_verification,timeout,deadline_exceeded,1800,1,true,incident
+int-0011-2,corr-0011,2025-01-20T13:00:30Z,Beacon Identity Labs,identity_verification,success,verified,400,2,false,incident
+int-0012-1,corr-0012,2025-01-20T13:01:00Z,Beacon Identity Labs,identity_verification,timeout,deadline_exceeded,1800,1,true,incident
+int-0012-2,corr-0012,2025-01-20T13:01:30Z,Beacon Identity Labs,identity_verification,success,verified,400,2,false,incident
+int-0013-1,corr-0013,2025-01-20T13:02:00Z,Beacon Identity Labs,identity_verification,success,verified,163,1,false,incident
+int-0014-1,corr-0014,2025-01-20T13:03:00Z,Beacon Identity Labs,identity_verification,timeout,deadline_exceeded,1800,1,true,incident
+int-0014-2,corr-0014,2025-01-20T13:03:30Z,Beacon Identity Labs,identity_verification,success,verified,400,2,false,incident
+int-0015-1,corr-0015,2025-01-20T13:04:00Z,Beacon Identity Labs,identity_verification,timeout,deadline_exceeded,1800,1,true,incident
+int-0015-2,corr-0015,2025-01-20T13:04:30Z,Beacon Identity Labs,identity_verification,success,verified,400,2,false,incident
+int-0016-1,corr-0016,2025-01-20T13:05:00Z,Beacon Identity Labs,identity_verification,success,verified,166,1,false,incident
+int-0017-1,corr-0017,2025-01-20T13:06:00Z,Beacon Identity Labs,identity_verification,timeout,deadline_exceeded,1800,1,true,incident
+int-0017-2,corr-0017,2025-01-20T13:06:30Z,Beacon Identity Labs,identity_verification,success,verified,400,2,false,incident
+int-0018-1,corr-0018,2025-01-20T13:07:00Z,Beacon Identity Labs,identity_verification,timeout,deadline_exceeded,1800,1,true,incident
+int-0018-2,corr-0018,2025-01-20T13:07:30Z,Beacon Identity Labs,identity_verification,timeout,deadline_exceeded,1800,2,true,incident
+int-0019-1,corr-0019,2025-01-20T13:08:00Z,Beacon Identity Labs,identity_verification,success,verified,169,1,false,incident
+int-0020-1,corr-0020,2025-01-20T13:09:00Z,Beacon Identity Labs,identity_verification,success,verified,170,1,false,incident

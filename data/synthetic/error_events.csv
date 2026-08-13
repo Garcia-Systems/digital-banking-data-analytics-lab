@@ -1,0 +1,7 @@
+error_id,timestamp,correlation_id,component,error_category,severity,endpoint,provider,recoverable,member_visible,period
+err-0011,2025-01-20T13:00:00Z,corr-0011,identity_adapter,provider_timeout,warning,/api/applications/{id}/verify,Beacon Identity Labs,true,false,incident
+err-0012,2025-01-20T13:01:00Z,corr-0012,identity_adapter,provider_timeout,warning,/api/applications/{id}/verify,Beacon Identity Labs,true,true,incident
+err-0014,2025-01-20T13:03:00Z,corr-0014,identity_adapter,provider_timeout,warning,/api/applications/{id}/verify,Beacon Identity Labs,true,false,incident
+err-0015,2025-01-20T13:04:00Z,corr-0015,identity_adapter,provider_timeout,warning,/api/applications/{id}/verify,Beacon Identity Labs,true,true,incident
+err-0017,2025-01-20T13:06:00Z,corr-0017,identity_adapter,provider_timeout,warning,/api/applications/{id}/verify,Beacon Identity Labs,true,false,incident
+err-0018,2025-01-20T13:07:00Z,corr-0018,identity_adapter,provider_timeout,error,/api/applications/{id}/verify,Beacon Identity Labs,false,true,incident

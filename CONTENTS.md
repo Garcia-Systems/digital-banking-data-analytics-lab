@@ -1,6 +1,6 @@
 # Contents
 
-Chapters 0–13 are implemented and Part III is complete. Later titles are the planned roadmap, not placeholder chapters.
+Chapters 0–17 are implemented and Parts I–IV are complete. Later titles are the planned roadmap, not placeholder chapters.
 
 ## Part I — Thinking Like an Analytics-Driven Engineer
 
@@ -27,10 +27,10 @@ Chapters 0–13 are implemented and Part III is complete. Later titles are the p
 
 ## Part IV — Analytics for Full-Stack Engineering
 
-14. API Analytics
-15. Vendor and Fintech Integration Analytics
-16. Database Analytics
-17. Error and Incident Analytics
+14. [API Analytics](chapters/14-api-analytics.md)
+15. [Vendor and Fintech Integration Analytics](chapters/15-vendor-and-fintech-integration-analytics.md)
+16. [Database Analytics](chapters/16-database-analytics.md)
+17. [Error and Incident Analytics](chapters/17-error-and-incident-analytics.md)
 
 ## Part V — Turning Analysis Into Decisions
 
@@ -44,4 +44,4 @@ Chapters 0–13 are implemented and Part III is complete. Later titles are the p
 
 23. The Harbor Federal Digital Experience Investigation
 
-The future capstone begins: **Digital account-opening completion has declined. Find out why.** It will require investigation across experience events, funnel stages, devices, APIs, and vendor evidence. It is intentionally not implemented yet.
+The future capstone begins: **Digital account-opening completion has declined. Find out why.** It will require investigation across experience events, funnel stages, devices, APIs, and vendor evidence. Part IV supplies application-layer evidence; Chapter 18 and later remain intentionally unimplemented.
