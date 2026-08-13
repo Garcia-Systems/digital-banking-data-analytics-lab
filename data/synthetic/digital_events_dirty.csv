@@ -1,10 +1,10 @@
 event_id,timestamp,session_id,anonymous_or_synthetic_member_id,channel,device_type,event_name,page_or_feature,outcome,duration_ms,source_system
 evt-00001,2025-01-06T09:00:00Z,d01-app-01,synthetic-member-d01-app-01,web,desktop,page_view,account_opening,success,420,member_web
 evt-00002,2025-01-06T09:01:00Z,d01-app-01,synthetic-member-d01-app-01,web,desktop,application_started,account_opening,success,900,account_opening
-evt-00003,2025-01-06T09:02:00Z,d01-app-01,synthetic-member-d01-app-01,web,desktop,identity_verification_started,identity_verification,success,700,identity_provider
-evt-00004,2025-01-06T09:03:00Z,d01-app-01,synthetic-member-d01-app-01,web,desktop,identity_verification_completed,identity_verification,success,1500,identity_provider
-evt-00005,2025-01-06T09:04:00Z,d01-app-01,synthetic-member-d01-app-01,web,desktop,application_submitted,account_opening,success,800,account_opening
-evt-00006,2025-01-06T09:45:00Z,d01-app-02,synthetic-member-d01-app-02,web,desktop,page_view,account_opening,success,420,member_web
+evt-00003,2025-01-06T09:02:00Z,d01-app-01,synthetic-member-d01-app-01,Mobile,desktop,identity_verification_started,identity_verification,success,700,identity_provider
+evt-00004,2025-01-06T09:03:00Z,d01-app-01,synthetic-member-d01-app-01,web,desktop,identity_verification_completed,identity_verification,success,-50,identity_provider
+evt-00005,2025-01-06T09:04:00Z,d01-app-01,synthetic-member-d01-app-01,,desktop,application_submitted,account_opening,success,800,account_opening
+evt-00006,not-a-timestamp,d01-app-02,synthetic-member-d01-app-02,web,desktop,page_view,account_opening,success,420,member_web
 evt-00007,2025-01-06T09:46:00Z,d01-app-02,synthetic-member-d01-app-02,web,desktop,application_started,account_opening,success,900,account_opening
 evt-00008,2025-01-06T09:47:00Z,d01-app-02,synthetic-member-d01-app-02,web,desktop,identity_verification_started,identity_verification,success,700,identity_provider
 evt-00009,2025-01-06T09:48:00Z,d01-app-02,synthetic-member-d01-app-02,web,desktop,identity_verification_completed,identity_verification,success,1500,identity_provider
@@ -55,7 +55,6 @@ evt-00053,2025-01-07T09:03:00Z,d02-app-01,synthetic-member-d02-app-01,web,deskto
 evt-00054,2025-01-07T09:04:00Z,d02-app-01,synthetic-member-d02-app-01,web,desktop,application_submitted,account_opening,success,800,account_opening
 evt-00055,2025-01-07T09:05:00Z,d02-app-01,synthetic-member-d02-app-01,web,desktop,application_completed,account_opening,success,1100,account_opening
 evt-00056,2025-01-07T09:45:00Z,d02-app-02,synthetic-member-d02-app-02,web,desktop,page_view,account_opening,success,420,member_web
-evt-00057,2025-01-07T09:46:00Z,d02-app-02,synthetic-member-d02-app-02,web,desktop,application_started,account_opening,success,900,account_opening
 evt-00058,2025-01-07T09:47:00Z,d02-app-02,synthetic-member-d02-app-02,web,desktop,identity_verification_started,identity_verification,success,700,identity_provider
 evt-00059,2025-01-07T09:48:00Z,d02-app-02,synthetic-member-d02-app-02,web,desktop,identity_verification_completed,identity_verification,success,1500,identity_provider
 evt-00060,2025-01-07T09:49:00Z,d02-app-02,synthetic-member-d02-app-02,web,desktop,application_submitted,account_opening,success,800,account_opening
@@ -115,7 +114,7 @@ evt-00113,2025-01-08T10:31:00Z,d03-app-03,synthetic-member-d03-app-03,web,deskto
 evt-00114,2025-01-08T10:32:00Z,d03-app-03,synthetic-member-d03-app-03,web,desktop,identity_verification_started,identity_verification,success,700,identity_provider
 evt-00115,2025-01-08T10:33:00Z,d03-app-03,synthetic-member-d03-app-03,web,desktop,identity_verification_completed,identity_verification,success,1500,identity_provider
 evt-00116,2025-01-08T10:34:00Z,d03-app-03,synthetic-member-d03-app-03,web,desktop,application_submitted,account_opening,success,800,account_opening
-evt-00117,2025-01-08T10:35:00Z,d03-app-03,synthetic-member-d03-app-03,web,desktop,application_completed,account_opening,success,1100,account_opening
+evt-00117,2025-01-01T00:00:00Z,d03-app-03,synthetic-member-d03-app-03,web,desktop,application_completed,account_opening,success,1100,account_opening
 evt-00118,2025-01-08T11:15:00Z,d03-app-04,synthetic-member-d03-app-04,web,desktop,page_view,account_opening,success,420,member_web
 evt-00119,2025-01-08T11:16:00Z,d03-app-04,synthetic-member-d03-app-04,web,desktop,application_started,account_opening,success,900,account_opening
 evt-00120,2025-01-08T11:17:00Z,d03-app-04,synthetic-member-d03-app-04,web,desktop,identity_verification_started,identity_verification,success,700,identity_provider
@@ -1020,3 +1019,4 @@ evt-01018,2025-01-26T14:19:00Z,d21-app-08,synthetic-member-d21-app-08,mobile,pho
 evt-01019,2025-01-26T14:20:00Z,d21-app-08,synthetic-member-d21-app-08,mobile,phone,application_completed,account_opening,success,1100,account_opening
 evt-01020,2025-01-26T15:40:00Z,d21-service,synthetic-member-d21-service,web,desktop,login_success,login,success,380,harbor_api
 evt-01021,2025-01-26T15:41:00Z,d21-service,synthetic-member-d21-service,web,desktop,account_view,checking_summary,success,310,harbor_api
+evt-00011,2025-01-06T09:50:00Z,d01-app-02,synthetic-member-d01-app-02,web,desktop,application_completed,account_opening,success,1100,account_opening

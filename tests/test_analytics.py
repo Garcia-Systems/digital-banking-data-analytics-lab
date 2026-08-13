@@ -1,3 +1,4 @@
+import pytest
 from harbor_analytics.analysis import (
     average,
     average_duration,
@@ -13,28 +14,28 @@ from harbor_analytics.dataset import generate_events
 
 
 def test_stable_event_count() -> None:
-    assert len(generate_events()) == 61
+    assert len(generate_events()) == 1021
 
 
 def test_unique_sessions() -> None:
-    assert unique_sessions(generate_events()) == 12
+    assert unique_sessions(generate_events()) == 189
 
 
 def test_application_counts_and_rate() -> None:
     events = generate_events()
     starts = count_events(events, "application_started")
     completions = count_events(events, "application_completed")
-    assert starts == 10
-    assert completions == 7
-    assert completion_rate(starts, completions) == 70.0
+    assert starts == 168
+    assert completions == 148
+    assert completion_rate(starts, completions) == pytest.approx(88.0952)
 
 
 def test_channel_segmentation() -> None:
     events = generate_events()
-    assert unique_sessions(events, "web") == 7
-    assert unique_sessions(events, "mobile") == 5
-    assert group_by_channel(events, "application_started") == {"web": 6, "mobile": 4}
-    assert group_by_channel(events, "application_completed") == {"web": 5, "mobile": 2}
+    assert unique_sessions(events, "web") == 94
+    assert unique_sessions(events, "mobile") == 95
+    assert group_by_channel(events, "application_started") == {"web": 83, "mobile": 85}
+    assert group_by_channel(events, "application_completed") == {"web": 78, "mobile": 70}
 
 
 def test_empty_dataset_is_safe() -> None:
@@ -52,18 +53,17 @@ def test_empty_dataset_is_safe() -> None:
 def test_filter_group_rate_average_and_sources() -> None:
     events = generate_events()
     mobile_starts = filter_events(events, "application_started", channel="mobile")
-    assert len(mobile_starts) == 4
-    assert group_count(mobile_starts, "channel") == {"mobile": 4}
+    assert len(mobile_starts) == 85
+    assert group_count(mobile_starts, "channel") == {"mobile": 85}
     assert rate(2, 4) == 50.0
     assert average([2, 4, 6]) == 4.0
     assert average_duration(filter_events(events, "application_completed")) == 1100.0
     assert group_count(events, "source_system") == {
-        "member_web": 7,
-        "account_opening": 25,
-        "identity_provider": 20,
-        "mobile_app": 4,
-        "harbor_api": 3,
-        "transfer_service": 2,
+        "member_web": 83,
+        "account_opening": 475,
+        "identity_provider": 336,
+        "mobile_app": 85,
+        "harbor_api": 42,
     }
     filter_events,
     group_count,
