@@ -17,7 +17,8 @@ def generate_events() -> list[Event]:
     base = datetime(2025, 1, 13, 14, 0, tzinfo=timezone.utc)
 
     def add(session: int, minute: int, channel: str, device: str, name: str,
-            feature: str, outcome: str = "success", duration: int = 0) -> None:
+            feature: str, outcome: str = "success", duration: int = 0,
+            source: str | None = None) -> None:
         events.append(
             Event(
                 event_id=f"evt-{len(events) + 1:04d}",
@@ -30,6 +31,7 @@ def generate_events() -> list[Event]:
                 page_or_feature=feature,
                 outcome=outcome,
                 duration_ms=duration,
+                source_system=source or ("member_web" if channel == "web" else "mobile_app"),
             )
         )
 
@@ -39,21 +41,23 @@ def generate_events() -> list[Event]:
         channel, device = ("web", "desktop") if session <= 6 else ("mobile", "phone")
         start = (session - 1) * 10
         add(session, start, channel, device, "page_view", "account_opening", duration=420)
-        add(session, start + 1, channel, device, "application_started", "account_opening", duration=900)
-        add(session, start + 2, channel, device, "identity_verification_started", "identity_verification", duration=700)
+        add(session, start + 1, channel, device, "application_started", "account_opening", duration=900, source="account_opening")
+        add(session, start + 2, channel, device, "identity_verification_started", "identity_verification", duration=700, source="identity_provider")
         if session not in {9, 10}:
-            add(session, start + 3, channel, device, "identity_verification_completed", "identity_verification", duration=1500)
-            add(session, start + 4, channel, device, "application_submitted", "account_opening", duration=800)
+            add(session, start + 3, channel, device, "identity_verification_completed", "identity_verification", duration=1500, source="identity_provider")
+            add(session, start + 4, channel, device, "application_submitted", "account_opening", duration=800, source="account_opening")
+        else:
+            add(session, start + 3, channel, device, "identity_verification_failed", "identity_verification", outcome="failure", duration=1400, source="identity_provider")
         if session not in {6, 9, 10}:
-            add(session, start + 5, channel, device, "application_completed", "account_opening", duration=1100)
+            add(session, start + 5, channel, device, "application_completed", "account_opening", duration=1100, source="account_opening")
 
     # Two ordinary self-service journeys ensure the fixture covers other digital events.
     add(11, 110, "web", "desktop", "page_view", "login", duration=250)
-    add(11, 111, "web", "desktop", "login_success", "login", duration=640)
-    add(11, 112, "web", "desktop", "account_view", "checking_summary", duration=310)
-    add(12, 120, "mobile", "phone", "login_success", "biometric_login", duration=380)
-    add(12, 121, "mobile", "phone", "transfer_started", "internal_transfer", duration=510)
-    add(12, 122, "mobile", "phone", "transfer_completed", "internal_transfer", duration=760)
+    add(11, 111, "web", "desktop", "login_success", "login", duration=640, source="harbor_api")
+    add(11, 112, "web", "desktop", "account_view", "checking_summary", duration=310, source="harbor_api")
+    add(12, 120, "mobile", "phone", "login_success", "biometric_login", duration=380, source="harbor_api")
+    add(12, 121, "mobile", "phone", "transfer_started", "internal_transfer", duration=510, source="transfer_service")
+    add(12, 122, "mobile", "phone", "transfer_completed", "internal_transfer", duration=760, source="transfer_service")
     return events
 
 
@@ -65,4 +69,3 @@ def write_events(path: str | Path) -> None:
         writer = csv.DictWriter(target, fieldnames=FIELDNAMES, lineterminator="\n")
         writer.writeheader()
         writer.writerows(generate_events())
-

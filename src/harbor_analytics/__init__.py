@@ -15,4 +15,4 @@ __all__ = [
     "load_events",
     "unique_sessions",
 ]
-
+"""Reusable lessons for the fictional Harbor Federal Credit Union."""

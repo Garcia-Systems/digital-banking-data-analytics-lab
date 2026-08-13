@@ -1,4 +1,4 @@
-"""Small, explicit analytics operations used in Chapter 0."""
+"""Small, explicit analytics operations used throughout the opening chapters."""
 
 from __future__ import annotations
 
@@ -19,6 +19,7 @@ class Event(TypedDict):
     page_or_feature: str
     outcome: str
     duration_ms: int
+    source_system: str
 
 
 def load_events(path: str | Path) -> list[Event]:
@@ -43,14 +44,50 @@ def unique_sessions(events: Iterable[Event], channel: str | None = None) -> int:
     )
 
 
-def count_events(events: Iterable[Event], event_name: str) -> int:
-    """Count rows whose event name exactly matches ``event_name``."""
-    return sum(event["event_name"] == event_name for event in events)
+def filter_events(
+    events: Iterable[Event], event_name: str | None = None, **attributes: object
+) -> list[Event]:
+    """Return events matching an optional name and exact field values."""
+    return [
+        event for event in events
+        if (event_name is None or event["event_name"] == event_name)
+        and all(event.get(key) == value for key, value in attributes.items())
+    ]
+
+
+def count_events(events: Iterable[Event], event_name: str | None = None) -> int:
+    """Count all events, or only events with an exact event name."""
+    return sum(1 for _ in filter_events(events, event_name))
+
+
+def group_count(events: Iterable[Event], dimension: str) -> dict[str, int]:
+    """Count events by a named field; missing fields appear as ``<missing>``."""
+    counts: dict[str, int] = {}
+    for event in events:
+        value = str(event.get(dimension, "<missing>"))
+        counts[value] = counts.get(value, 0) + 1
+    return counts
+
+
+def rate(numerator: int, denominator: int) -> float:
+    """Return a percentage, using 0.0 when the denominator is zero."""
+    return numerator / denominator * 100 if denominator else 0.0
+
+
+def average(values: Iterable[int | float]) -> float:
+    """Return the arithmetic mean, or 0.0 for empty input."""
+    materialized = list(values)
+    return sum(materialized) / len(materialized) if materialized else 0.0
+
+
+def average_duration(events: Iterable[Event]) -> float:
+    """Return mean recorded event duration in milliseconds, or 0.0 if empty."""
+    return average(event["duration_ms"] for event in events)
 
 
 def completion_rate(starts: int, completions: int) -> float:
     """Return completions per start as a percentage; zero starts is safe."""
-    return (completions / starts * 100) if starts else 0.0
+    return rate(completions, starts)
 
 
 def group_by_channel(events: Iterable[Event], event_name: str) -> dict[str, int]:
