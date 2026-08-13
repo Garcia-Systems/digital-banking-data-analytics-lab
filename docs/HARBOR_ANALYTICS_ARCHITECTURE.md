@@ -76,3 +76,6 @@ silently multiplying events. Cross-layer corroboration supports investigation, n
 ## Part V decision layer
 
 The decision layer reads synthetic experience and engineering observations without changing their grains. `decisions.py` supplies declared before/after arithmetic, start-week cohorts and maturity, seeded experiment assignment/outcomes, guardrails, shared report facts, and offline dashboard rendering. Flow is observation → baseline → comparison → hypothesis → assigned change → measurement → interpretation → human decision → audience communication. A dashboard signal drills down to segment, journey, and API/vendor/database evidence; it is not a causal engine.
+# Final capstone extension
+
+Chapter 23 adds seven dedicated `capstone_*` sources at their natural grains: experience event, API request, fictional vendor attempt, query observation, structured error, navigation observation, and release. The fixture generator writes deterministic CSVs; `build_analytics_db.py` imports them as separate SQLite tables. Synthetic session, application, request, and correlation identifiers permit bounded traversal without a member profile or sensitive payload. `capstone.py` performs application-grain aggregation and attempt-to-operation grouping; the trace tool reads those same fixtures rather than returning canned output.

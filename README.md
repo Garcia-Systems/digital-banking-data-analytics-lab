@@ -24,7 +24,7 @@ The material is for web, mobile, API, integration, and database engineers who kn
 
 ## Executable-textbook method
 
-Each implemented chapter connects prose to inspectable data, runnable terminal commands, reusable Python, and tests. The learner can follow this path:
+This **completed executable textbook** connects all 24 chapters to inspectable data, runnable terminal commands, reusable Python, and tests. The learner can follow this path:
 
 ```text
 events
@@ -44,7 +44,7 @@ Python 3.11+, SQLite in later chapters, and the standard library keep the enviro
 
 | Path | Purpose |
 | --- | --- |
-| `chapters/` | Textbook prose; Chapters 0–22 and Parts I–V are complete |
+| `chapters/` | Complete Chapters 0–23 across Parts I–VI |
 | `data/synthetic/` | Regenerable, inspectable fictional fixtures |
 | `src/harbor_analytics/` | Readable reusable calculations and generation |
 | `scripts/` | Direct executable entry points |
@@ -53,7 +53,20 @@ Python 3.11+, SQLite in later chapters, and the standard library keep the enviro
 | `tests/` | Determinism and analytics behavior checks |
 | `docs/` | Architecture and cross-cutting guidance |
 
-See the full 24-chapter plan in [CONTENTS.md](CONTENTS.md) and the fictional system map in [the architecture document](docs/HARBOR_ANALYTICS_ARCHITECTURE.md).
+See the complete curriculum in [CONTENTS.md](CONTENTS.md), the fictional system map in [the architecture document](docs/HARBOR_ANALYTICS_ARCHITECTURE.md), and field definitions in the [data dictionary](docs/DATA_DICTIONARY.md).
+
+## Curriculum
+
+```text
+Part I   — Analytics thinking
+Part II  — SQL, time, segmentation, data quality
+Part III — Member journeys and digital experience
+Part IV  — API/vendor/database/incident analytics
+Part V   — Decisions, experiments, dashboards, communication
+Part VI  — Integrated digital banking investigation
+```
+
+Readers learn to define answerable questions and metrics; validate, query, segment, and trace synthetic evidence; analyze journeys and engineering telemetry; rule alternatives in or out; measure changes; and communicate without overstating observational evidence.
 
 ## Install
 
@@ -130,13 +143,27 @@ Part V moves from observation through declared baselines, comparable cohorts, co
 ```bash
 python3 -m pytest
 python3 -m compileall -q src scripts tests
+./scripts/validate-labs.sh
+python3 scripts/validate_structure.py
 ```
 
 The tests verify fixture reproducibility, sources, reusable calculations, question readiness, segmentation, and safe empty-input behavior. None depends on the current date.
 
-## Roadmap
+## Final capstone
 
-The six parts progress from analytical thinking, through SQL and journey analysis, to engineering signals, decision-making, and a final investigation. Chapters 0–3 establish sources, metrics, and question framing. Chapters 4–7 add SQL, time, segmentation, and analytical trust. Chapters 8–10 add application-grain journey modeling, funnels, and evidence-bounded friction investigation. Chapters 11–13 complete Part III with channel/device, navigation/search, and campaign analysis. Chapters 14–17 complete Part IV with API, fictional vendor, database, error/incident analytics, and a cross-layer investigation. Chapters 18–22 complete Part V decision analytics. Only Chapter 23 remains intentionally deferred.
+Start with the deliberately ambiguous request—without revealing its answer:
+
+```bash
+python3 scripts/generate_capstone_data.py
+python3 scripts/run_capstone.py
+python3 scripts/run_capstone.py --analysis overview
+```
+
+[Chapter 23](chapters/23-the-harbor-federal-digital-experience-investigation.md) integrates journey, campaign, API, fictional-provider, database, release, error, and cross-layer trace evidence. Its [review](docs/CAPSTONE_REVIEW.md) is separate so the investigation remains genuine. Build the offline, dependency-free Chapter 21 dashboard with `python3 scripts/build_dashboard.py`; it writes `dist/dashboard.html` without network assets.
+
+## Completed learning path
+
+The six parts progress from analytical thinking, through SQL and journey analysis, to engineering signals, decision-making, and the integrated final investigation. Chapters 0–3 establish sources, metrics, and question framing; 4–7 add SQL, time, segmentation, and trust; 8–13 cover member journeys; 14–17 cross the application stack; 18–22 turn evidence into decisions; and Chapter 23 integrates the entire loop.
 
 ## Privacy and scope
 
