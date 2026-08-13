@@ -47,4 +47,28 @@ The CSV/generator is authoritative. `build_analytics_db.py` recreates a local SQ
 
 Application events retain event grain and a synthetic `application_id`; Python and SQL project them into ordered application-grain journeys, explicitly denominated funnels, last-stage summaries, segments, and timing/error investigation. Forward order is required and missing telemetry is not inferred. This is descriptive evidence—not a workflow engine or causal model.
 
-The same stream carries purpose-limited channel/device, navigation, normalized search-intent, and campaign-arrival context. Raw search text is excluded. Campaign tags begin at the observed property and cannot prove attribution. Part IV will connect these visible patterns to API, integration, database, latency, and error telemetry; it is not implemented yet.
+The same stream carries purpose-limited channel/device, navigation, normalized search-intent, and campaign-arrival context. Raw search text is excluded. Campaign tags begin at the observed property and cannot prove attribution. Part IV connects these visible patterns to separate API, integration, database, latency, and error telemetry.
+
+## Part IV application-layer evidence
+
+```text
+MEMBER EXPERIENCE
+      ↓
+WEB / MOBILE
+      ↓
+HARBOR API
+      ↓
+APPLICATION SERVICES
+     ↙       ↘
+DATABASE   VENDOR / FINTECH
+      ↓        ↓
+   TELEMETRY / EVENTS
+          ↓
+       ANALYTICS
+```
+
+Digital events, API requests, Beacon Identity Labs integration calls, database observations,
+and errors remain separate sources with different grains and meanings. Synthetic session,
+application, request, and correlation identifiers connect only the observations that were
+instrumented. Separate tables preserve provenance and prevent a convenient mega-table from
+silently multiplying events. Cross-layer corroboration supports investigation, not causation.

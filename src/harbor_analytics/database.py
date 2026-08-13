@@ -2,6 +2,7 @@
 import sqlite3
 from pathlib import Path
 from .analysis import Event
+from .engineering import FIELDS
 
 SCHEMA = """CREATE TABLE events (event_id TEXT PRIMARY KEY, timestamp TEXT NOT NULL,
 session_id TEXT NOT NULL, anonymous_or_synthetic_member_id TEXT, channel TEXT NOT NULL,
@@ -21,3 +22,13 @@ def build_database(path: str | Path, events: list[Event]) -> None:
         fields = list(Event.__annotations__)
         connection.executemany(f"INSERT INTO events ({','.join(fields)}) VALUES ({','.join('?' for _ in fields)})",
                                [[event[field] for field in fields] for event in events])
+
+def add_engineering_telemetry(path: str | Path, fixtures: dict[str, list[dict]]) -> None:
+    """Project distinct telemetry sources into distinct SQLite tables."""
+    with sqlite3.connect(path) as connection:
+        for table, rows in fixtures.items():
+            columns=FIELDS[table]
+            connection.execute(f"DROP TABLE IF EXISTS {table}")
+            connection.execute(f"CREATE TABLE {table} ({','.join(f'{c} TEXT' for c in columns)})")
+            connection.executemany(f"INSERT INTO {table} VALUES ({','.join('?' for _ in columns)})",
+                                   [[row[c] for c in columns] for row in rows])

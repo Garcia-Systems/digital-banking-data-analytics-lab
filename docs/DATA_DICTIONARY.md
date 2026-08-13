@@ -39,3 +39,18 @@ The dirty derivative deliberately violates several rules. No fixture contains na
 | `navigation_to` | Normalized destination for a `navigation_click` |
 
 `channel` is the delivery surface and `device_type` is hardware form; they are not interchangeable. A **navigation event** is a page view or explicit navigation action. A **search** is one `search_started`; a **search session** is a distinct session containing searches. A **no-result search** has a `search_no_results` observation. A **campaign** is a fictional tagged initiative. **Observed conversion** is tagged completions / tagged starts, not causal attribution.
+
+## Part IV telemetry fixtures
+
+All four CSVs are deterministic, fictional, and payload-free. Empty provider/application fields
+mean not applicable, not an inferred failure. Durations are synthetic milliseconds.
+
+| Fixture | Grain | Fields |
+|---|---|---|
+| `api_requests.csv` | Harbor request | `request_id`, `timestamp`, `correlation_id`, `session_id`, `application_id`, `endpoint`, `method`, `status_code`, `duration_ms`, `outcome`, `channel`, `device_type`, `period` |
+| `integration_calls.csv` | provider attempt | `integration_request_id`, `correlation_id`, `timestamp`, `provider`, `operation`, `outcome`, `provider_status`, `duration_ms`, `attempt_number`, `retryable`, `period` |
+| `database_queries.csv` | labeled query execution | `query_id`, `timestamp`, `correlation_id`, `query_name`, `operation_type`, `table_category`, `duration_ms`, `rows_examined`, `rows_returned`, `outcome`, `period` |
+| `error_events.csv` | structured error observation | `error_id`, `timestamp`, `correlation_id`, `component`, `error_category`, `severity`, `endpoint`, `provider`, `recoverable`, `member_visible`, `period` |
+
+No fixture contains bodies, raw SQL parameters, tokens, names, account numbers, credentials,
+or sensitive stack traces. `period` is the explicit synthetic baseline/incident teaching label.
