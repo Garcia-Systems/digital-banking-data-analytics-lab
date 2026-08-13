@@ -208,6 +208,22 @@ Use this as a check, not a substitute for calculation:
 4. What does the zero-start guard prevent, and what caveat remains when reporting it?
 5. Why should an analytics event omit operational fields unrelated to the question?
 
-## Next chapter
+## Chapter contract
 
-Chapter 1 will map the Harbor Federal analytics ecosystem and the contracts between experience, service, integration, database, and telemetry evidence. For now, consult the [architecture overview](../docs/HARBOR_ANALYTICS_ARCHITECTURE.md); Chapter 1 is intentionally not yet implemented.
+- **Read:** the chapter and `src/harbor_analytics/dataset.py`.
+- **Run:** `python3 scripts/generate_synthetic_data.py && python3 scripts/chapter_00_summary.py` from the repository root.
+- **Observe:** Verify the printed analytical unit, counts, window, and evidence boundary rather than reading a percentage alone.
+- **Change or investigate:** Complete the exercise below on a filter or copy; committed fixtures remain deterministic.
+- **Understand afterward:** Explain what this chapter's evidence establishes, what it only suggests, and which earlier definition it depends on.
+
+## Exercise
+
+1. **Predict:** Before running the lab, write one expected count, segment, pattern, or evidence limitation.
+2. **Run:** Execute the contract command and identify the analytical unit behind each reported rate.
+3. **Inspect and calculate:** Reproduce one result from its numerator and denominator (or verify one non-rate result from the underlying rows).
+4. **Compare and explain:** State one evidence-bounded observation and one interpretation or hypothesis that needs more evidence.
+5. **Investigate:** Change a filter, segment, window, fixture copy, or trace target; explain why the result changed.
+
+## Navigation
+
+[Contents](../CONTENTS.md) · [Chapter 1 →](01-the-harbor-federal-analytics-ecosystem.md)

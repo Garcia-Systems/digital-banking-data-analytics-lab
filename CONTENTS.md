@@ -45,3 +45,11 @@ All 24 chapters and Parts I–VI are implemented as a completed executable textb
 23. [The Harbor Federal Digital Experience Investigation](chapters/23-the-harbor-federal-digital-experience-investigation.md)
 
 The final capstone begins: **Digital account-opening completion has declined. Find out why.** Investigate before opening the separately linked review.
+
+## Whole-book references
+
+- [Canonical glossary](docs/GLOSSARY.md)
+- [Synthetic data provenance](docs/DATA_PROVENANCE.md)
+- [Learning map](docs/LEARNING_MAP.md)
+- [Full-stack engineer skills map](docs/FULL_STACK_ENGINEER_SKILLS_MAP.md)
+- [Completion checklist](docs/COMPLETION_CHECKLIST.md)

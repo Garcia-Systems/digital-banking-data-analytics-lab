@@ -7,7 +7,9 @@ def test_before_after_math_and_targets():
     assert round(relative_change(.74,.81),6)==round(.07/.74,6)
     assert relative_change(0,.2) is None
     assert target_met(.81,.80) and target_met(.03,.04,"<=")
-    assert len(before_after_rows())==6
+    rows=before_after_rows()
+    assert len(rows)==6
+    assert all(row["baseline_n"] > 0 and row["comparison_n"] > 0 and row["denominator_unit"] for row in rows)
 
 def test_cohorts_and_maturity():
     rows=[{"started_at":"2025-03-03T10:00:00Z","completed":True,"verification_completed":True},{"started_at":"2025-03-04T10:00:00Z","completed":False,"verification_completed":True}]
@@ -30,6 +32,9 @@ def test_dashboard_structure_and_metric_consistency(tmp_path):
     html=build_dashboard(tmp_path/"dashboard.html"); m=dashboard_metrics()
     for section in ("Engineering","Digital Product","Operations","Definitions and drill-down"): assert section in html
     assert f"{m['completion_rate']:.1%}" in html and "http://" not in html and "https://" not in html
+    assert f"{m['completion_count']} / {m['applications']}" in html
+    assert f"{m['variant_b_count']} / {m['variant_b_n']}" in html
+    assert "Audience:" in html and "Observation period:" in html
 
 def test_communication_same_facts():
     reports=communication_reports(); assert set(reports)=={"engineering","product","executive"}
