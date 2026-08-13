@@ -41,3 +41,8 @@ deterministic generator → committed clean CSV → disposable SQLite database
 ```
 
 The CSV/generator is authoritative. `build_analytics_db.py` recreates a local SQLite projection; the database is ignored by Git. Event-name and timestamp indexes support the filters taught in Chapters 4–5. Detection-only quality checks prevent undocumented “cleanup.” All times are interpreted as UTC. This architecture supports investigation, not experiment attribution or prediction.
+
+
+## Part III journey projection
+
+Application events retain event grain and a synthetic `application_id`; Python and SQL project them into ordered application-grain journeys, explicitly denominated funnels, last-stage summaries, segments, and timing/error investigation. Forward order is required and missing telemetry is not inferred. This is descriptive evidence—not a workflow engine or causal model.
