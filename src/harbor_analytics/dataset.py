@@ -21,6 +21,17 @@ def generate_events() -> list[Event]:
             source: str | None = None, application_id: str = "",
             attempt_number: int = 0, error_category: str = "",
             vendor_result: str = "", api_duration_ms: int = 0) -> None:
+        campaign_id = ""
+        traffic_source = "direct"
+        referral_category = "none"
+        landing_page = ""
+        if application_id:
+            ordinal = int(application_id.split("-")[-1])
+            campaign_id = ("campaign-mobile-banking" if ordinal % 4 in (0, 1)
+                           else "campaign-checking-summer" if ordinal % 4 == 2 else "")
+            traffic_source = "campaign" if campaign_id else "direct"
+            referral_category = "owned" if campaign_id == "campaign-mobile-banking" else ("partner" if campaign_id else "none")
+            landing_page = "checking_campaign" if campaign_id else "account_opening"
         events.append(Event(
             event_id=f"evt-{len(events) + 1:05d}",
             timestamp=(base + timedelta(days=day, minutes=minute)).isoformat().replace("+00:00", "Z"),
@@ -38,6 +49,9 @@ def generate_events() -> list[Event]:
             error_category=error_category,
             vendor_result=vendor_result,
             api_duration_ms=api_duration_ms,
+            traffic_source=traffic_source, campaign_id=campaign_id,
+            landing_page=landing_page, referral_category=referral_category,
+            search_category="", navigation_from="", navigation_to="",
         ))
 
     for day in range(21):
@@ -69,6 +83,32 @@ def generate_events() -> list[Event]:
         channel, device = (("mobile", "phone") if day % 2 else ("web", "desktop"))
         add(day, session, 400, channel, device, "login_success", "login", duration=380, source="harbor_api")
         add(day, session, 401, channel, device, "account_view", "checking_summary", duration=310, source="harbor_api")
+
+        # Purpose-limited self-service navigation: normalized categories, never raw text.
+        nav = f"d{day + 1:02d}-navigation"
+        nav_channel, nav_device = (("mobile", "phone") if day % 3 else ("web", "desktop"))
+        add(day, nav, 410, nav_channel, nav_device, "page_view", "dashboard", duration=250)
+        add(day, nav, 411, nav_channel, nav_device, "navigation_click", "navigation", duration=80)
+        events[-1]["navigation_from"], events[-1]["navigation_to"] = "dashboard", "card_management" if day % 4 == 0 else "search"
+        destination = events[-1]["navigation_to"]
+        add(day, nav, 412, nav_channel, nav_device, "page_view", destination, duration=220)
+        if destination == "search":
+            category = "replace_card" if day % 2 else "transfer_status"
+            add(day, nav, 413, nav_channel, nav_device, "search_started", "search", duration=100)
+            events[-1]["search_category"] = category
+            if day % 5 == 1:
+                add(day, nav, 414, nav_channel, nav_device, "search_no_results", "search", "failure", 120)
+                events[-1]["search_category"] = category
+                add(day, nav, 415, nav_channel, nav_device, "help_article_viewed", "help", duration=500)
+            else:
+                add(day, nav, 414, nav_channel, nav_device, "search_results_viewed", "search", duration=120)
+                events[-1]["search_category"] = category
+                add(day, nav, 415, nav_channel, nav_device, "search_result_selected", "search", duration=90)
+                events[-1]["search_category"] = category
+                add(day, nav, 416, nav_channel, nav_device, "page_view", "card_management" if category == "replace_card" else "transfers", duration=240)
+        if day % 7 == 1:  # an explicit repeated search in the same session
+            add(day, nav, 417, nav_channel, nav_device, "search_started", "search", duration=100)
+            events[-1]["search_category"] = "replace_card"
     return events
 
 

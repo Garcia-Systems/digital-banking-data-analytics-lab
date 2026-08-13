@@ -1,6 +1,6 @@
 # Contents
 
-Chapters 0–10 are implemented. Later titles are the planned roadmap, not placeholder chapters.
+Chapters 0–13 are implemented and Part III is complete. Later titles are the planned roadmap, not placeholder chapters.
 
 ## Part I — Thinking Like an Analytics-Driven Engineer
 
@@ -21,9 +21,9 @@ Chapters 0–10 are implemented. Later titles are the planned roadmap, not place
 8. [Modeling the Member Journey](chapters/08-modeling-the-member-journey.md)
 9. [Funnel Analysis](chapters/09-funnel-analysis.md)
 10. [Finding Abandonment and Friction](chapters/10-finding-abandonment-and-friction.md)
-11. Mobile vs. Desktop Experience Analytics
-12. Navigation and Search Analytics
-13. Marketing and Campaign Analytics
+11. [Mobile vs. Desktop Experience Analytics](chapters/11-mobile-vs-desktop-experience-analytics.md)
+12. [Navigation and Search Analytics](chapters/12-navigation-and-search-analytics.md)
+13. [Marketing and Campaign Analytics](chapters/13-marketing-and-campaign-analytics.md)
 
 ## Part IV — Analytics for Full-Stack Engineering
 

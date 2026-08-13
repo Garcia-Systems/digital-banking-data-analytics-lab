@@ -14,7 +14,7 @@ def test_sqlite_generation_counts_and_python_agreement(tmp_path: Path):
  events=generate_events(); db=tmp_path/'a.sqlite'; build_database(db,events)
  with sqlite3.connect(db) as con:
   assert con.execute('select count(*) from events').fetchone()[0]==len(events)
-  assert con.execute('select count(distinct session_id) from events').fetchone()[0]==189
+  assert con.execute('select count(distinct session_id) from events').fetchone()[0]==210
   assert con.execute("select count(*) from events where event_name='application_completed'").fetchone()[0]==count_events(events,'application_completed')
   assert dict(con.execute("select channel,count(*) from events where event_name='application_started' group by channel"))=={'mobile':85,'web':83}
 

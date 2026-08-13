@@ -25,6 +25,13 @@ class Event(TypedDict):
     error_category: str
     vendor_result: str
     api_duration_ms: int
+    traffic_source: str
+    campaign_id: str
+    landing_page: str
+    referral_category: str
+    search_category: str
+    navigation_from: str
+    navigation_to: str
 
 
 def load_events(path: str | Path) -> list[Event]:

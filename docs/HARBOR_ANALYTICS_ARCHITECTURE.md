@@ -46,3 +46,5 @@ The CSV/generator is authoritative. `build_analytics_db.py` recreates a local SQ
 ## Part III journey projection
 
 Application events retain event grain and a synthetic `application_id`; Python and SQL project them into ordered application-grain journeys, explicitly denominated funnels, last-stage summaries, segments, and timing/error investigation. Forward order is required and missing telemetry is not inferred. This is descriptive evidence—not a workflow engine or causal model.
+
+The same stream carries purpose-limited channel/device, navigation, normalized search-intent, and campaign-arrival context. Raw search text is excluded. Campaign tags begin at the observed property and cannot prove attribution. Part IV will connect these visible patterns to API, integration, database, latency, and error telemetry; it is not implemented yet.
