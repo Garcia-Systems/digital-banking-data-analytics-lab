@@ -1,0 +1,48 @@
+# Contents
+
+Only Chapter 0 is implemented in this foundation. Later titles are the planned roadmap, not placeholder chapters.
+
+## Part I — Thinking Like an Analytics-Driven Engineer
+
+0. [From Application Data to Engineering Decisions](chapters/00-from-application-data-to-engineering-decisions.md)
+1. The Harbor Federal Analytics Ecosystem
+2. Metrics, Dimensions, Events, and KPIs
+3. Asking Questions the Data Can Actually Answer
+
+## Part II — Getting Answers From Banking Data
+
+4. SQL as an Analytics Tool
+5. Time-Based Analysis
+6. Segmentation
+7. Data Quality and Analytical Trust
+
+## Part III — Understanding the Digital Member Journey
+
+8. Modeling the Member Journey
+9. Funnel Analysis
+10. Finding Abandonment and Friction
+11. Mobile vs. Desktop Experience Analytics
+12. Navigation and Search Analytics
+13. Marketing and Campaign Analytics
+
+## Part IV — Analytics for Full-Stack Engineering
+
+14. API Analytics
+15. Vendor and Fintech Integration Analytics
+16. Database Analytics
+17. Error and Incident Analytics
+
+## Part V — Turning Analysis Into Decisions
+
+18. Baselines, Targets, and Before/After Analysis
+19. Cohort Analysis
+20. Experimentation and A/B Testing
+21. Dashboards for Engineers, Product Teams, and Operations
+22. Communicating Findings Without Overclaiming
+
+## Part VI — Capstone
+
+23. The Harbor Federal Digital Experience Investigation
+
+The future capstone begins: **Digital account-opening completion has declined. Find out why.** It will require investigation across experience events, funnel stages, devices, APIs, and vendor evidence. It is intentionally not implemented yet.
+
