@@ -22,4 +22,24 @@ Run:
 python3 scripts/chapter_18_before_after.py
 ```
 
-The lab reports application, mobile, and verification completion plus API errors, p95 latency, and vendor timeouts. Rates include denominators conceptually; latency is milliseconds. The declared target precedes status evaluation. This chapter teaches analysis for a decision; a separate measurable-outcomes discipline asks how far the observation supports technical, member, or business impact claims.
+The lab reports application, mobile, and verification completion plus API errors, p95 latency, and vendor timeouts. Each row names its 200-observation denominator unit; latency is calculated across the named requests or calls and expressed in milliseconds. The declared target precedes status evaluation. This chapter teaches analysis for a decision; a separate measurable-outcomes discipline asks how far the observation supports technical, member, or business impact claims.
+
+## Chapter contract
+
+- **Read:** the declared windows and `src/harbor_analytics/decisions.py`.
+- **Run:** `python3 scripts/chapter_18_before_after.py` from the repository root.
+- **Observe:** Verify the printed analytical unit, counts, window, and evidence boundary rather than reading a percentage alone.
+- **Change or investigate:** Complete the exercise below on a filter or copy; committed fixtures remain deterministic.
+- **Understand afterward:** Explain what this chapter's evidence establishes, what it only suggests, and which earlier definition it depends on.
+
+## Exercise
+
+1. **Predict:** Before running the lab, write one expected count, segment, pattern, or evidence limitation.
+2. **Run:** Execute the contract command and identify the analytical unit behind each reported rate.
+3. **Inspect and calculate:** Reproduce one result from its numerator and denominator (or verify one non-rate result from the underlying rows).
+4. **Compare and explain:** State one evidence-bounded observation and one interpretation or hypothesis that needs more evidence.
+5. **Investigate:** Change a filter, segment, window, fixture copy, or trace target; explain why the result changed.
+
+## Navigation
+
+[← Chapter 17](17-error-and-incident-analytics.md) · [Contents](../CONTENTS.md) · [Chapter 19 →](19-cohort-analysis.md)

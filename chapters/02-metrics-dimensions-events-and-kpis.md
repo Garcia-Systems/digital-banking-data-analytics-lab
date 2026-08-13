@@ -53,5 +53,22 @@ Define grain and formula; dimensions group; metrics measure; KPI status comes fr
 4. Why can event duration differ from journey duration?
 5. What language avoids a causal overclaim after grouping?
 
-## Next chapter
-Chapter 3 asks whether these fields and calculations can support the conclusion a question requests.
+## Chapter contract
+
+- **Read:** the metric definitions and `src/harbor_analytics/analysis.py`.
+- **Run:** `python3 scripts/chapter_02_metrics.py` from the repository root.
+- **Observe:** Verify the printed analytical unit, counts, window, and evidence boundary rather than reading a percentage alone.
+- **Change or investigate:** Complete the exercise below on a filter or copy; committed fixtures remain deterministic.
+- **Understand afterward:** Explain what this chapter's evidence establishes, what it only suggests, and which earlier definition it depends on.
+
+## Exercise
+
+1. **Predict:** Before running the lab, write one expected count, segment, pattern, or evidence limitation.
+2. **Run:** Execute the contract command and identify the analytical unit behind each reported rate.
+3. **Inspect and calculate:** Reproduce one result from its numerator and denominator (or verify one non-rate result from the underlying rows).
+4. **Compare and explain:** State one evidence-bounded observation and one interpretation or hypothesis that needs more evidence.
+5. **Investigate:** Change a filter, segment, window, fixture copy, or trace target; explain why the result changed.
+
+## Navigation
+
+[← Chapter 1](01-the-harbor-federal-analytics-ecosystem.md) · [Contents](../CONTENTS.md) · [Chapter 3 →](03-asking-questions-data-can-answer.md)

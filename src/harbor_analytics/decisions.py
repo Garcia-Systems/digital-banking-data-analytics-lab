@@ -45,9 +45,15 @@ def before_after_rows() -> list[dict]:
         "verification completion": (.75, .84), "API error rate": (.075, .035),
         "API p95 latency": (1180, 820), "vendor timeout rate": (.09, .04),
     }
+    denominator_units = {
+        "application completion": "applications", "mobile completion": "mobile applications",
+        "verification completion": "verification operations", "API error rate": "API requests",
+        "API p95 latency": "API requests", "vendor timeout rate": "provider calls",
+    }
     return [{"metric": k, "baseline": v[0], "comparison": v[1],
              "difference": absolute_difference(*v), "target": TARGETS[k][0],
-             "operator": TARGETS[k][1], "target_met": target_met(v[1], *TARGETS[k])}
+             "operator": TARGETS[k][1], "target_met": target_met(v[1], *TARGETS[k]),
+             "baseline_n": 200, "comparison_n": 200, "denominator_unit": denominator_units[k]}
             for k, v in values.items()]
 
 
@@ -157,16 +163,18 @@ def communication_reports(metrics: dict | None = None) -> dict[str, dict]:
 
 def dashboard_metrics() -> dict:
     exp=experiment_metrics(generate_experiment()); ba={r["metric"]:r for r in before_after_rows()}
-    return {"observation_period":"2025-03-10 through 2025-03-19 (synthetic)","applications":400,
-      "completion_rate":(exp["A"]["completion_count"]+exp["B"]["completion_count"])/400,
+    completion_count=exp["A"]["completion_count"]+exp["B"]["completion_count"]
+    return {"observation_period":"2025-03-10 through 2025-03-19 UTC (synthetic)","applications":400,
+      "completion_count":completion_count,"completion_rate":completion_count/400,
       "api_error_rate":ba["API error rate"]["comparison"],"api_p95_latency":ba["API p95 latency"]["comparison"],
-      "vendor_timeout_rate":ba["vendor timeout rate"]["comparison"],"variant_b_rate":exp["B"]["completion_rate"]}
+      "vendor_timeout_rate":ba["vendor timeout rate"]["comparison"],"variant_b_count":exp["B"]["completion_count"],
+      "variant_b_n":exp["B"]["sample_size"],"variant_b_rate":exp["B"]["completion_rate"]}
 
 
 def build_dashboard(path: str | Path) -> str:
-    m=dashboard_metrics(); cards=[("Applications",str(m["applications"]),"assigned applications"),("Completion",f"{m['completion_rate']:.1%}","completed / assigned"),("API error rate",f"{m['api_error_rate']:.1%}","errors / requests"),("API p95",f"{m['api_p95_latency']:.0f} ms","95th percentile")]
+    m=dashboard_metrics(); cards=[("Applications",str(m["applications"]),"assigned applications"),("Completion",f"{m['completion_count']} / {m['applications']} = {m['completion_rate']:.1%}","completed / assigned applications"),("API error rate",f"{m['api_error_rate']:.1%}","errors / 200 API requests"),("API p95",f"{m['api_p95_latency']:.0f} ms","nearest-rank p95 of 200 API requests")]
     card_html="".join(f'<article class="card"><h3>{escape(a)}</h3><strong>{b}</strong><p>{c}</p></article>' for a,b,c in cards)
-    html=f'''<!doctype html><html><head><meta charset="utf-8"><title>Harbor decision dashboard</title><style>body{{font:16px system-ui;max-width:1100px;margin:auto;padding:2rem;background:#f4f7fa;color:#17324d}}.cards{{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:1rem}}.card,section{{background:white;padding:1rem;margin:1rem 0;border-radius:8px}}table{{border-collapse:collapse;width:100%}}td,th{{padding:.5rem;border-bottom:1px solid #ccd6df;text-align:left}}</style></head><body><header><h1>Harbor Federal decision dashboard</h1><p>Entirely fictional and synthetic. Observation period: {m['observation_period']}.</p></header><main><section id="engineering"><h2>Engineering</h2><div class="cards">{card_html}</div><table><tr><th>Metric</th><th>Value</th><th>Denominator/context</th></tr><tr><td>Vendor timeout rate</td><td>{m['vendor_timeout_rate']:.1%}</td><td>timeouts / integration attempts</td></tr><tr><td>Database/query behavior</td><td>Monitor drill-down</td><td>query executions</td></tr><tr><td>Member-visible errors</td><td>Monitor drill-down</td><td>structured error events</td></tr></table></section><section id="product"><h2>Digital Product</h2><p>Starts, funnel, abandonment, channel, search/navigation friction. Variant B completion: {m['variant_b_rate']:.1%}. Recent incomplete applications may be immature, not abandoned.</p></section><section id="operations"><h2>Operations</h2><p>Completed versus incomplete applications, verification outcomes, exceptions, and follow-up indicators. Always show counts and denominators.</p></section><section id="definitions"><h2>Definitions and drill-down</h2><p>Dashboard signal → segment → journey → API/vendor/database evidence → investigation. A signal starts investigation; correlation is not explanation.</p></section></main></body></html>'''
+    html=f'''<!doctype html><html><head><meta charset="utf-8"><title>Harbor decision dashboard</title><style>body{{font:16px system-ui;max-width:1100px;margin:auto;padding:2rem;background:#f4f7fa;color:#17324d}}.cards{{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:1rem}}.card,section{{background:white;padding:1rem;margin:1rem 0;border-radius:8px}}table{{border-collapse:collapse;width:100%}}td,th{{padding:.5rem;border-bottom:1px solid #ccd6df;text-align:left}}</style></head><body><header><h1>Harbor Federal decision dashboard</h1><p><strong>Audience:</strong> engineering, digital product, and operations decision partners.</p><p>Entirely fictional and synthetic. Observation period: {m['observation_period']}.</p></header><main><section id="engineering"><h2>Engineering</h2><p>Question: are technical guardrails healthy enough to consider a product decision?</p><div class="cards">{card_html}</div><table><tr><th>Metric</th><th>Value</th><th>Denominator/context</th></tr><tr><td>Vendor timeout rate</td><td>{m['vendor_timeout_rate']:.1%}</td><td>timeouts / 200 provider calls</td></tr><tr><td>Database/query behavior</td><td>Monitor drill-down</td><td>query executions</td></tr><tr><td>Member-visible errors</td><td>Monitor drill-down</td><td>structured error events</td></tr></table></section><section id="product"><h2>Digital Product</h2><p>Question: did assigned experience B change application completion without unacceptable friction?</p><p>Variant B completion: {m['variant_b_count']} / {m['variant_b_n']} assigned applications = {m['variant_b_rate']:.1%}. Recent incomplete applications may be immature, not abandoned.</p></section><section id="operations"><h2>Operations</h2><p>Question: which observed exceptions need follow-up?</p><p>Review completed/incomplete application counts, verification outcomes, and exception indicators at application grain; do not substitute request or call counts.</p></section><section id="definitions"><h2>Definitions and drill-down</h2><p>Dashboard signal → segment → journey → API/vendor/database evidence → investigation. A signal starts investigation; correlation is not explanation.</p></section></main></body></html>'''
     path=Path(path); path.parent.mkdir(parents=True,exist_ok=True); path.write_text(html,encoding="utf-8"); return html
 
 

@@ -12,3 +12,23 @@ python3 scripts/chapter_19_cohorts.py
 ```
 
 Read size, completion count and rate, verification rate, and maturity together. Compare mature cohorts with equivalent windows; describe an immature cohort rather than ranking it against mature cohorts. This refines Chapter 10's fixed-window abandonment rule rather than replacing it.
+
+## Chapter contract
+
+- **Read:** the maturity rule and `src/harbor_analytics/decisions.py`.
+- **Run:** `python3 scripts/chapter_19_cohorts.py` from the repository root.
+- **Observe:** Verify the printed analytical unit, counts, window, and evidence boundary rather than reading a percentage alone.
+- **Change or investigate:** Complete the exercise below on a filter or copy; committed fixtures remain deterministic.
+- **Understand afterward:** Explain what this chapter's evidence establishes, what it only suggests, and which earlier definition it depends on.
+
+## Exercise
+
+1. **Predict:** Before running the lab, write one expected count, segment, pattern, or evidence limitation.
+2. **Run:** Execute the contract command and identify the analytical unit behind each reported rate.
+3. **Inspect and calculate:** Reproduce one result from its numerator and denominator (or verify one non-rate result from the underlying rows).
+4. **Compare and explain:** State one evidence-bounded observation and one interpretation or hypothesis that needs more evidence.
+5. **Investigate:** Change a filter, segment, window, fixture copy, or trace target; explain why the result changed.
+
+## Navigation
+
+[← Chapter 18](18-baselines-targets-and-before-after-analysis.md) · [Contents](../CONTENTS.md) · [Chapter 20 →](20-experimentation-and-ab-testing.md)

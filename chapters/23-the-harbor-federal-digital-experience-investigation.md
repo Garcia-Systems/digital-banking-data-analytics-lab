@@ -134,3 +134,19 @@ QUESTION → INSTRUMENT → COLLECT → VALIDATE → QUERY → SEGMENT → TRACE
 Analytics does not replace debugging, application/API/database knowledge, testing, product judgment, or communication. It makes each activity more evidence-driven.
 
 [Review the investigation →](../docs/CAPSTONE_REVIEW.md)
+
+## Chapter contract
+
+- **Read:** the investigation phases and `src/harbor_analytics/capstone.py`; keep `docs/CAPSTONE_REVIEW.md` closed until finished.
+- **Run:** `python3 scripts/generate_capstone_data.py && python3 scripts/run_capstone.py` from the repository root.
+- **Observe:** Verify the printed analytical unit, counts, window, and evidence boundary rather than reading a percentage alone.
+- **Change or investigate:** Complete the exercise below on a filter or copy; committed fixtures remain deterministic.
+- **Understand afterward:** Explain what this chapter's evidence establishes, what it only suggests, and which earlier definition it depends on.
+
+## Exercise
+
+Complete Phases 1–9 in order without opening the review. For every rate, record numerator, denominator, unit, and window. Maintain a hypothesis table with supporting, contradicting, and missing evidence. Trace at least one recovered and one unrecovered operation, then write a report that labels observations, calculations, associations, the leading hypothesis, alternatives, and what is not established. Only then compare with `docs/CAPSTONE_REVIEW.md`; reasonable evidence-bounded interpretations need not match its wording.
+
+## Navigation
+
+[← Chapter 22](22-communicating-findings-without-overclaiming.md) · [Contents](../CONTENTS.md)

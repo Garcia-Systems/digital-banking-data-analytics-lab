@@ -26,6 +26,8 @@ The material is for web, mobile, API, integration, and database engineers who kn
 
 This **completed executable textbook** connects all 24 chapters to inspectable data, runnable terminal commands, reusable Python, and tests. The learner can follow this path:
 
+> **This is an executable textbook: the reader does not merely read analytics concepts. They query, calculate, segment, trace, diagnose, compare, experiment, and communicate using deterministic synthetic digital-banking evidence.**
+
 ```text
 events
 ↓
@@ -68,7 +70,9 @@ Part VI  — Integrated digital banking investigation
 
 Readers learn to define answerable questions and metrics; validate, query, segment, and trace synthetic evidence; analyze journeys and engineering telemetry; rule alternatives in or out; measure changes; and communicate without overstating observational evidence.
 
-## Install
+## Prerequisites and install
+
+You need Git, Python 3.11 or newer, a POSIX-compatible shell for the full-book validator, and a browser to inspect the offline dashboard. Python's bundled `sqlite3` module builds and queries the teaching database; a separate SQLite CLI is optional.
 
 From the repository root:
 
@@ -80,6 +84,27 @@ python3 -m pip install -r requirements-dev.txt
 ```
 
 Chapter 0 itself has no third-party runtime dependency. `pytest` is needed only for tests.
+
+## Quick start: Chapter 0
+
+Clone the repository, enter its root, complete the installation above, then read [Chapter 0](chapters/00-from-application-data-to-engineering-decisions.md). Its executable contract is:
+
+```bash
+python3 scripts/generate_synthetic_data.py
+python3 scripts/chapter_00_summary.py
+```
+
+Predict first, run the command, inspect its denominators, complete the exercise, and use the navigation footer to continue. Later chapters deliberately reuse definitions introduced earlier; keep the [glossary](docs/GLOSSARY.md) and [learning map](docs/LEARNING_MAP.md) nearby.
+
+## Build the SQLite teaching database
+
+```bash
+python3 scripts/generate_synthetic_data.py
+python3 scripts/generate_engineering_telemetry.py
+python3 scripts/build_analytics_db.py
+```
+
+The result, `data/generated/harbor_analytics.sqlite`, is disposable and rebuildable. CSV fixtures remain authoritative; see [data provenance](docs/DATA_PROVENANCE.md).
 
 ## Run Chapters 0–13
 
