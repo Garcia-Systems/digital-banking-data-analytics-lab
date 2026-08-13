@@ -1,6 +1,6 @@
 # Contents
 
-Chapters 0–17 are implemented and Parts I–IV are complete. Later titles are the planned roadmap, not placeholder chapters.
+Chapters 0–22 are implemented and Parts I–V are complete. Chapter 23 remains the planned capstone.
 
 ## Part I — Thinking Like an Analytics-Driven Engineer
 
@@ -34,14 +34,14 @@ Chapters 0–17 are implemented and Parts I–IV are complete. Later titles are 
 
 ## Part V — Turning Analysis Into Decisions
 
-18. Baselines, Targets, and Before/After Analysis
-19. Cohort Analysis
-20. Experimentation and A/B Testing
-21. Dashboards for Engineers, Product Teams, and Operations
-22. Communicating Findings Without Overclaiming
+18. [Baselines, Targets, and Before/After Analysis](chapters/18-baselines-targets-and-before-after-analysis.md)
+19. [Cohort Analysis](chapters/19-cohort-analysis.md)
+20. [Experimentation and A/B Testing](chapters/20-experimentation-and-ab-testing.md)
+21. [Dashboards for Engineers, Product Teams, and Operations](chapters/21-dashboards-for-engineers-product-and-operations.md)
+22. [Communicating Findings Without Overclaiming](chapters/22-communicating-findings-without-overclaiming.md)
 
 ## Part VI — Capstone
 
 23. The Harbor Federal Digital Experience Investigation
 
-The future capstone begins: **Digital account-opening completion has declined. Find out why.** It will require investigation across experience events, funnel stages, devices, APIs, and vendor evidence. Part IV supplies application-layer evidence; Chapter 18 and later remain intentionally unimplemented.
+The future capstone begins: **Digital account-opening completion has declined. Find out why.** It will require investigation across experience events, funnel stages, devices, APIs, and vendor evidence. Part V supplies decision tools; Chapter 23 remains intentionally unimplemented and will not disclose its answer up front.

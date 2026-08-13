@@ -72,3 +72,7 @@ and errors remain separate sources with different grains and meanings. Synthetic
 application, request, and correlation identifiers connect only the observations that were
 instrumented. Separate tables preserve provenance and prevent a convenient mega-table from
 silently multiplying events. Cross-layer corroboration supports investigation, not causation.
+
+## Part V decision layer
+
+The decision layer reads synthetic experience and engineering observations without changing their grains. `decisions.py` supplies declared before/after arithmetic, start-week cohorts and maturity, seeded experiment assignment/outcomes, guardrails, shared report facts, and offline dashboard rendering. Flow is observation → baseline → comparison → hypothesis → assigned change → measurement → interpretation → human decision → audience communication. A dashboard signal drills down to segment, journey, and API/vendor/database evidence; it is not a causal engine.

@@ -44,7 +44,7 @@ Python 3.11+, SQLite in later chapters, and the standard library keep the enviro
 
 | Path | Purpose |
 | --- | --- |
-| `chapters/` | Textbook prose; Chapters 0–17 and Part IV are complete |
+| `chapters/` | Textbook prose; Chapters 0–22 and Parts I–V are complete |
 | `data/synthetic/` | Regenerable, inspectable fictional fixtures |
 | `src/harbor_analytics/` | Readable reusable calculations and generation |
 | `scripts/` | Direct executable entry points |
@@ -111,6 +111,20 @@ Four separate API, integration-attempt, query, and error sources preserve their 
 
 Read [Chapter 0](chapters/00-from-application-data-to-engineering-decisions.md), then continue through the linked Chapters 1–13 in [CONTENTS.md](CONTENTS.md). The [data dictionary](docs/DATA_DICTIONARY.md) defines every field. Calculations live in `src/harbor_analytics/analysis.py`; no analytics framework conceals them.
 
+## Run Part V
+
+```bash
+python3 scripts/generate_decision_data.py
+python3 scripts/chapter_18_before_after.py
+python3 scripts/chapter_19_cohorts.py
+python3 scripts/chapter_20_experiment.py
+python3 scripts/build_dashboard.py       # writes dist/dashboard.html
+python3 scripts/chapter_22_communication.py
+python3 scripts/part_05_decision_review.py
+```
+
+Part V moves from observation through declared baselines, comparable cohorts, controlled synthetic assignment, guardrails, audience-specific dashboards, and evidence-bounded communication. Analytics presents decision options; it does not silently make a product decision.
+
 ## Test and validate
 
 ```bash
@@ -122,7 +136,7 @@ The tests verify fixture reproducibility, sources, reusable calculations, questi
 
 ## Roadmap
 
-The six parts progress from analytical thinking, through SQL and journey analysis, to engineering signals, decision-making, and a final investigation. Chapters 0–3 establish sources, metrics, and question framing. Chapters 4–7 add SQL, time, segmentation, and analytical trust. Chapters 8–10 add application-grain journey modeling, funnels, and evidence-bounded friction investigation. Chapters 11–13 complete Part III with channel/device, navigation/search, and campaign analysis. Chapters 14–17 complete Part IV with API, fictional vendor, database, error/incident analytics, and a cross-layer investigation. Chapters 18–23 remain intentionally deferred.
+The six parts progress from analytical thinking, through SQL and journey analysis, to engineering signals, decision-making, and a final investigation. Chapters 0–3 establish sources, metrics, and question framing. Chapters 4–7 add SQL, time, segmentation, and analytical trust. Chapters 8–10 add application-grain journey modeling, funnels, and evidence-bounded friction investigation. Chapters 11–13 complete Part III with channel/device, navigation/search, and campaign analysis. Chapters 14–17 complete Part IV with API, fictional vendor, database, error/incident analytics, and a cross-layer investigation. Chapters 18–22 complete Part V decision analytics. Only Chapter 23 remains intentionally deferred.
 
 ## Privacy and scope
 
