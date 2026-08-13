@@ -20,6 +20,11 @@ class Event(TypedDict):
     outcome: str
     duration_ms: int
     source_system: str
+    application_id: str
+    attempt_number: int
+    error_category: str
+    vendor_result: str
+    api_duration_ms: int
 
 
 def load_events(path: str | Path) -> list[Event]:
@@ -29,6 +34,8 @@ def load_events(path: str | Path) -> list[Event]:
         events: list[Event] = []
         for row in rows:
             row["duration_ms"] = int(row["duration_ms"])
+            row["attempt_number"] = int(row["attempt_number"])
+            row["api_duration_ms"] = int(row["api_duration_ms"])
             events.append(Event(**row))
         return events
 

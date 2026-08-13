@@ -6,7 +6,8 @@ from .analysis import Event
 SCHEMA = """CREATE TABLE events (event_id TEXT PRIMARY KEY, timestamp TEXT NOT NULL,
 session_id TEXT NOT NULL, anonymous_or_synthetic_member_id TEXT, channel TEXT NOT NULL,
 device_type TEXT NOT NULL, event_name TEXT NOT NULL, page_or_feature TEXT, outcome TEXT,
-duration_ms INTEGER, source_system TEXT NOT NULL);
+duration_ms INTEGER, source_system TEXT NOT NULL, application_id TEXT, attempt_number INTEGER,
+error_category TEXT, vendor_result TEXT, api_duration_ms INTEGER);
 CREATE INDEX idx_events_name ON events(event_name);
 CREATE INDEX idx_events_timestamp ON events(timestamp);"""
 
