@@ -1,6 +1,6 @@
 # Contents
 
-Chapters 0–3 are implemented. Later titles are the planned roadmap, not placeholder chapters.
+Chapters 0–7 are implemented. Later titles are the planned roadmap, not placeholder chapters.
 
 ## Part I — Thinking Like an Analytics-Driven Engineer
 
@@ -11,10 +11,10 @@ Chapters 0–3 are implemented. Later titles are the planned roadmap, not placeh
 
 ## Part II — Getting Answers From Banking Data
 
-4. SQL as an Analytics Tool
-5. Time-Based Analysis
-6. Segmentation
-7. Data Quality and Analytical Trust
+4. [SQL as an Analytics Tool](chapters/04-sql-as-an-analytics-tool.md)
+5. [Time-Based Analysis](chapters/05-time-based-analysis.md)
+6. [Segmentation](chapters/06-segmentation.md)
+7. [Data Quality and Analytical Trust](chapters/07-data-quality-and-analytical-trust.md)
 
 ## Part III — Understanding the Digital Member Journey
 

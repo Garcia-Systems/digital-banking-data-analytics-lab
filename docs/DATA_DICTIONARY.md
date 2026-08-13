@@ -1,19 +1,19 @@
-# Synthetic digital-event data dictionary
+# Harbor synthetic analytics data dictionary
 
-One CSV row is one fictional recorded event. All identifiers and values are deterministic and synthetic. Empty values are not currently generated.
+Both fixtures are fictional. `data/synthetic/digital_events.csv` is the canonical, deterministically generated clean fixture; `digital_events_dirty.csv` is a reproducible teaching derivative and must not replace it.
 
-| Field | Type | Definition | Example | Analytical role |
-| --- | --- | --- | --- | --- |
-| `event_id` | string | Unique identifier for the recorded event. | `evt-0001` | Identifier |
-| `timestamp` | ISO-8601 UTC string | Fixed time at which the event was recorded. | `2025-01-13T14:00:00Z` | Metric input / time dimension |
-| `session_id` | string | Synthetic identifier linking events in one digital visit. | `session-001` | Identifier / metric input |
-| `anonymous_or_synthetic_member_id` | string | Non-real identifier for the synthetic member represented by a session. | `synthetic-member-001` | Identifier / dimension |
-| `channel` | string | Digital interaction channel: `web` or `mobile`. | `web` | Dimension |
-| `device_type` | string | Coarse fictional client form: `desktop` or `phone`. | `desktop` | Dimension |
-| `event_name` | string | Stable name of the recorded occurrence. | `application_started` | Dimension / metric input |
-| `page_or_feature` | string | Feature context in which the event occurred. | `account_opening` | Dimension |
-| `outcome` | string | Recorded event outcome: `success` or `failure`. Absence of an event is not itself an outcome. | `success` | Dimension / metric input |
-| `duration_ms` | integer | Processing duration attached to this single event, in milliseconds; not journey duration. | `900` | Metric input |
-| `source_system` | string | Layer that emitted the observation. Stable values are `member_web`, `mobile_app`, `harbor_api`, `account_opening`, `identity_provider`, and `transfer_service`. | `account_opening` | Dimension / provenance |
+| Field | Meaning / valid values |
+|---|---|
+| `event_id` | Unique synthetic event key (`evt-...`) |
+| `timestamp` | ISO-8601 UTC timestamp ending `Z`; day/hour are derived in UTC |
+| `session_id` | Synthetic journey/session key |
+| `anonymous_or_synthetic_member_id` | Explicitly synthetic member key |
+| `channel` | `web`, `mobile` |
+| `device_type` | `desktop`, `phone` |
+| `event_name` | Recorded action, including application and identity start/completion/failure events |
+| `page_or_feature` | Fictional feature context |
+| `outcome` | `success` or `failure`; absence must not be interpreted as failure |
+| `duration_ms` | Nonnegative recorded milliseconds |
+| `source_system` | `member_web`, `mobile_app`, `account_opening`, `identity_provider`, or `harbor_api` |
 
-The fixture deliberately excludes names, real member IDs, account numbers, balances, credentials, identity documents, IP addresses, and vendor payloads. `source_system` describes provenance, not causality.
+The dirty derivative deliberately violates several rules. No fixture contains names, accounts, money, credentials, or real vendor/member data.
