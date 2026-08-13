@@ -44,7 +44,7 @@ Python 3.11+, SQLite in later chapters, and the standard library keep the enviro
 
 | Path | Purpose |
 | --- | --- |
-| `chapters/` | Textbook prose; Chapters 0–10 are complete |
+| `chapters/` | Textbook prose; Chapters 0–13 and Part III are complete |
 | `data/synthetic/` | Regenerable, inspectable fictional fixtures |
 | `src/harbor_analytics/` | Readable reusable calculations and generation |
 | `scripts/` | Direct executable entry points |
@@ -68,7 +68,7 @@ python3 -m pip install -r requirements-dev.txt
 
 Chapter 0 itself has no third-party runtime dependency. `pytest` is needed only for tests.
 
-## Run Chapters 0–10
+## Run Chapters 0–13
 
 Regenerate the committed CSV byte-for-byte, inspect it, then calculate the summary:
 
@@ -88,9 +88,13 @@ python3 scripts/chapter_07_data_quality.py
 python3 scripts/chapter_08_journeys.py
 python3 scripts/chapter_09_funnels.py
 python3 scripts/chapter_10_abandonment.py
+python3 scripts/chapter_11_mobile_desktop.py
+python3 scripts/chapter_12_navigation.py
+python3 scripts/chapter_13_campaigns.py
+python3 scripts/part_03_investigation.py
 ```
 
-Read [Chapter 0](chapters/00-from-application-data-to-engineering-decisions.md), then continue through the linked Chapters 1–10 in [CONTENTS.md](CONTENTS.md). The [data dictionary](docs/DATA_DICTIONARY.md) defines every field. Calculations live in `src/harbor_analytics/analysis.py`; no analytics framework conceals them.
+Read [Chapter 0](chapters/00-from-application-data-to-engineering-decisions.md), then continue through the linked Chapters 1–13 in [CONTENTS.md](CONTENTS.md). The [data dictionary](docs/DATA_DICTIONARY.md) defines every field. Calculations live in `src/harbor_analytics/analysis.py`; no analytics framework conceals them.
 
 ## Test and validate
 
@@ -103,7 +107,7 @@ The tests verify fixture reproducibility, sources, reusable calculations, questi
 
 ## Roadmap
 
-The six parts progress from analytical thinking, through SQL and journey analysis, to engineering signals, decision-making, and a final investigation. Chapters 0–3 establish sources, metrics, and question framing. Chapters 4–7 add SQL, time, segmentation, and analytical trust. Chapters 8–10 add application-grain journey modeling, funnels, and evidence-bounded friction investigation. Chapters 11–23 remain a roadmap in [CONTENTS.md](CONTENTS.md); experience, navigation, and campaign analysis are intentionally deferred.
+The six parts progress from analytical thinking, through SQL and journey analysis, to engineering signals, decision-making, and a final investigation. Chapters 0–3 establish sources, metrics, and question framing. Chapters 4–7 add SQL, time, segmentation, and analytical trust. Chapters 8–10 add application-grain journey modeling, funnels, and evidence-bounded friction investigation. Chapters 11–13 complete Part III with channel/device, navigation/search, and campaign analysis. Chapters 14–23 remain a roadmap; engineering telemetry begins in Part IV and is intentionally deferred.
 
 ## Privacy and scope
 

@@ -14,11 +14,11 @@ from harbor_analytics.dataset import generate_events
 
 
 def test_stable_event_count() -> None:
-    assert len(generate_events()) == 1021
+    assert len(generate_events()) == 1144
 
 
 def test_unique_sessions() -> None:
-    assert unique_sessions(generate_events()) == 189
+    assert unique_sessions(generate_events()) == 210
 
 
 def test_application_counts_and_rate() -> None:
@@ -32,8 +32,8 @@ def test_application_counts_and_rate() -> None:
 
 def test_channel_segmentation() -> None:
     events = generate_events()
-    assert unique_sessions(events, "web") == 94
-    assert unique_sessions(events, "mobile") == 95
+    assert unique_sessions(events, "web") == 101
+    assert unique_sessions(events, "mobile") == 109
     assert group_by_channel(events, "application_started") == {"web": 83, "mobile": 85}
     assert group_by_channel(events, "application_completed") == {"web": 78, "mobile": 70}
 
@@ -59,10 +59,10 @@ def test_filter_group_rate_average_and_sources() -> None:
     assert average([2, 4, 6]) == 4.0
     assert average_duration(filter_events(events, "application_completed")) == 1100.0
     assert group_count(events, "source_system") == {
-        "member_web": 83,
+        "member_web": 124,
         "account_opening": 475,
         "identity_provider": 336,
-        "mobile_app": 85,
+        "mobile_app": 167,
         "harbor_api": 42,
     }
     filter_events,

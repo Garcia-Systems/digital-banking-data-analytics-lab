@@ -25,3 +25,17 @@ Both fixtures are fictional. `data/synthetic/digital_events.csv` is the canonica
 The application attempt is the funnel grain. Member, session, and application are not interchangeable. Stage-to-stage rates divide by the prior-stage application count; overall completion divides completed by started applications. Observed abandonment means no later defined stage was recorded in the fixed window. Errors, retries, durations, and vendor results are friction signals, never causal findings.
 
 The dirty derivative deliberately violates several rules. No fixture contains names, accounts, money, credentials, or real vendor/member data.
+
+## Part III experience and arrival fields
+
+| Field | Meaning / valid values |
+|---|---|
+| `traffic_source` | Normalized arrival source (`campaign`, `direct`) |
+| `campaign_id` | Fictional campaign tag or blank; association is not attribution |
+| `landing_page` | Normalized intended arrival page |
+| `referral_category` | Coarse referral class (`owned`, `partner`, `none`) |
+| `search_category` | Allowlisted intent category; arbitrary/raw query text is never retained |
+| `navigation_from` | Normalized origin for a `navigation_click` |
+| `navigation_to` | Normalized destination for a `navigation_click` |
+
+`channel` is the delivery surface and `device_type` is hardware form; they are not interchangeable. A **navigation event** is a page view or explicit navigation action. A **search** is one `search_started`; a **search session** is a distinct session containing searches. A **no-result search** has a `search_no_results` observation. A **campaign** is a fictional tagged initiative. **Observed conversion** is tagged completions / tagged starts, not causal attribution.
