@@ -54,3 +54,10 @@ mean not applicable, not an inferred failure. Durations are synthetic millisecon
 
 No fixture contains bodies, raw SQL parameters, tokens, names, account numbers, credentials,
 or sensitive stack traces. `period` is the explicit synthetic baseline/incident teaching label.
+
+
+## Part V decision and experiment concepts
+
+`verification_guidance_experiment.csv` has one row per assigned fictional application. `experiment_id` names the synthetic comparison; `application_id` is non-identifying; `variant` is `A` (existing guidance) or `B` (revised guidance); and `assigned_at` is UTC. `completed` and `verification_completed` are Boolean observations. `duration_ms`, `api_error`, `verification_retries`, and `support_request` are synthetic guardrails. Assignment is generated before outcomes with a fixed seed. No field represents a person, account, money, or production system.
+
+A **baseline** is an observed value in a declared earlier window. A **target** is a predeclared objective. A **comparison window** is the later period evaluated against the baseline. A **cohort** shares a start characteristic. **Observation maturity** means the full declared follow-up window elapsed. An **experiment** compares deliberately assigned **variants**. A **guardrail metric** checks possible harm outside the primary metric. A **dashboard** organizes metrics around audience questions and decisions. An **evidence label** states whether wording is observed, calculated, comparative, associative, hypothetical, experimental, or not established.

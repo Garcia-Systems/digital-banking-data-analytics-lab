@@ -1,0 +1,3 @@
+# Synthetic experiment documentation
+
+Harbor's `verification-guidance-01` compares existing A with revised mobile guidance B. `generate_experiment` uses seeded pseudo-random assignment, then generates outcomes independently conditional on the intentionally modeled variant probabilities. Randomization supports comparability in expectation, not perfect small-sample balance. The primary metric is completed / assigned. API errors, retries, support requests, and duration are guardrails. The unpooled normal interval is an accessible uncertainty summary, not a decision rule or proof of practical importance. All applications and outcomes are fictional.
