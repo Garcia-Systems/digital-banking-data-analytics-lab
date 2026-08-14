@@ -1,5 +1,7 @@
 # 8. Modeling the Member Journey
 
+![Chapter 8 illustration](../images/chapters/chapter-08.png)
+
 An event is one observation; a journey is an ordered interpretation of several observations. Harbor's deliberately simple account-opening model is `application_started` → `identity_verification_started` → `identity_verification_completed` → `application_submitted` → `application_completed`. A landing page supplies entry context but is not an eligible funnel stage.
 
 ## Choose the grain

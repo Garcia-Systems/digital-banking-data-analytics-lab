@@ -1,5 +1,7 @@
 # Chapter 15 — Vendor and Fintech Integration Analytics
 
+![Chapter 15 illustration](../images/chapters/chapter-15.png)
+
 A Harbor API result can depend on another system: **Harbor API failure does not necessarily mean Harbor application failure, and a provider call failure does not necessarily mean the member journey failed.**
 
 ```text

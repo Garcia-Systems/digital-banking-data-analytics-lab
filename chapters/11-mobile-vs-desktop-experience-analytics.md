@@ -1,5 +1,7 @@
 # 11 — Mobile vs. Desktop Experience Analytics
 
+![Chapter 11 illustration](../images/chapters/chapter-11.png)
+
 > “Our overall account-opening completion rate is down. Is the experience different on mobile and desktop?”
 
 A percentage is only the start. Run `python3 scripts/chapter_11_mobile_desktop.py` to compare the same 21-day UTC observation window. The script reuses the application-grain journey and funnel: it reports applications, completions, stage-to-stage counts, last observed stage, and completed-journey duration.

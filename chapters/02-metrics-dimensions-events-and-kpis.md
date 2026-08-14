@@ -1,5 +1,7 @@
 # Chapter 2 — Metrics, Dimensions, Events, and KPIs
 
+![Chapter 2 illustration](../images/chapters/chapter-02.png)
+
 ## Why this matters
 Precise vocabulary prevents a field, count, and organizational objective from being presented as if they were the same thing.
 

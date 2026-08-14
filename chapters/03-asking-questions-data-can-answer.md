@@ -1,5 +1,7 @@
 # Chapter 3 — Asking Questions the Data Can Actually Answer
 
+![Chapter 3 illustration](../images/chapters/chapter-03.png)
+
 ## Why this matters
 Fast arithmetic cannot repair a question whose population is unclear or whose required evidence was never recorded.
 

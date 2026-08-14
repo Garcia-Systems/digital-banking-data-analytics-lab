@@ -1,5 +1,7 @@
 # 12 — Navigation and Search Analytics
 
+![Chapter 12 illustration](../images/chapters/chapter-12.png)
+
 Funnel stages say where progress stopped. Navigation describes how a session tries to find the task:
 
 ```text

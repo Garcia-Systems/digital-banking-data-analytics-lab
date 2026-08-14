@@ -1,5 +1,7 @@
 # 9. Funnel Analysis
 
+![Chapter 9 illustration](../images/chapters/chapter-09.png)
+
 > A funnel measures how many eligible journeys reach successive stages of a defined process.
 
 `build_funnel` counts distinct applications that progress through the ordered Harbor stages. Stage-to-stage conversion is `reached current / reached previous`; overall completion is `reached final / started`. Those denominator names must accompany “conversion.” Drop-off is the previous count minus the current count, and its rate uses the previous count. Zero denominators return `0.0` in this teaching API.

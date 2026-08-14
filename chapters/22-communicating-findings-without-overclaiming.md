@@ -1,5 +1,7 @@
 # Chapter 22 — Communicating Findings Without Overclaiming
 
+![Chapter 22 illustration](../images/chapters/chapter-22.png)
+
 **Say exactly what the evidence supports—and no more.** Use six parts: (1) question, (2) data and window, (3) calculated finding, (4) bounded interpretation, (5) limitation, and (6) next action.
 
 Poor: “The identity vendor caused members to abandon applications.” Better: “During the observed degradation period, mobile completion declined while verification timeouts and latency increased. Timing and correlated request evidence make the integration a leading engineering hypothesis, but this observational analysis does not establish that the vendor caused every incomplete application.”

@@ -1,5 +1,7 @@
 # Chapter 14 — API Analytics
 
+![Chapter 14 illustration](../images/chapters/chapter-14.png)
+
 Part III showed weaker mobile completion near identity verification. The application-layer question is: **what was Harbor's API doing during those sessions?** Harbor exposes synthetic `POST /api/applications`, `POST /api/applications/{id}/verify`, submit/status, transfer, and account endpoints; this fixture focuses on verification so its tail is visible.
 
 Request telemetry records request, session, application, and correlation identifiers plus endpoint, method, status, outcome, channel/device, and duration—metadata needed for analysis, not bodies, tokens, names, credentials, or account numbers. Purpose-limited metadata reduces exposure while retaining joins. Real systems often have correlation gaps; absence of a match is not proof that no call happened.

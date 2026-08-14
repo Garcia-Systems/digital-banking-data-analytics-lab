@@ -1,5 +1,7 @@
 # Chapter 19 — Cohort Analysis
 
+![Chapter 19 illustration](../images/chapters/chapter-19.png)
+
 A **cohort** follows or compares groups sharing a defined starting characteristic. Segmentation compares mobile with desktop; cohort analysis compares applications started in Week 1 with those started in Week 2. Other useful software cohorts include first digital-use month, experience version, and campaign-entry period.
 
 The analytical unit here is one application. `assign_start_cohort` assigns its UTC start to a Monday week, while `cohort_counts`, `cohort_completion`, and `cohort_stage_conversion` keep readable arithmetic. These are focused helpers, not an OLAP system.
