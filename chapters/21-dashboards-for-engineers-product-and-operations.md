@@ -1,5 +1,7 @@
 # Chapter 21 — Dashboards for Engineers, Product Teams, and Operations
 
+![Chapter 21 illustration](../images/chapters/chapter-21.png)
+
 Dashboards are not chart collections. Begin with **Audience → Question → Metric → Context → Decision**. These three Harbor perspectives are examples, not exhaustive departmental scorecards.
 
 * **Engineering:** API error rate, p95 latency, vendor timeouts, query behavior, and member-visible errors.

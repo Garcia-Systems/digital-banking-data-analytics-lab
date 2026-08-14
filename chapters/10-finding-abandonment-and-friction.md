@@ -1,5 +1,7 @@
 # 10. Finding Abandonment and Friction
 
+![Chapter 10 illustration](../images/chapters/chapter-10.png)
+
 Here **observed abandonment** means an application reached a defined stage but no later defined stage was observed within the fixture's 2025-01-06–2025-01-26 UTC observation window. It does not prove intent, malfunction, dissatisfaction, or vendor responsibility.
 
 A friction signal is recorded evidence worth investigating: a failure outcome/error category, retry attempt, long stage interval, or elevated API duration. Observed abandonment plus a friction signal is an investigation lead—not a proven cause. `last_reached_stage`, `abandonment_by_stage`, `incomplete_by_segment`, `stage_duration`, and `journey_duration` make that distinction inspectable.

@@ -1,5 +1,7 @@
 # Chapter 1 — The Harbor Federal Analytics Ecosystem
 
+![Chapter 1 illustration](../images/chapters/chapter-01.png)
+
 ## Why this matters
 A digital journey crosses interfaces, services, stores, and vendors. A count without its origin can be mistaken for evidence it was never designed to provide. Harbor Federal Credit Union is fictional; every record here is synthetic.
 

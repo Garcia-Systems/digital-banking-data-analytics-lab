@@ -1,5 +1,7 @@
 # Chapter 20 — Experimentation and A/B Testing
 
+![Chapter 20 illustration](../images/chapters/chapter-20.png)
+
 An experiment deliberately assigns comparable traffic to controlled variants so a specific change can be evaluated more credibly than a before/after observation. Harbor's entirely synthetic experiment compares A, existing guidance, with B, revised mobile verification guidance.
 
 `generate_experiment` uses a fixed seed. It draws assignments before outcomes, then models a declared synthetic treatment probability. Reproducibility is not predictability, and random assignment **does not guarantee perfect balance in every small sample**. Inspect sample counts and channel/device balance before interpreting.

@@ -1,5 +1,7 @@
 # 13 — Marketing and Campaign Analytics
 
+![Chapter 13 illustration](../images/chapters/chapter-13.png)
+
 A fictional Harbor checking campaign sends arrivals to account opening. Engineers need not become marketers: they need to understand how arrival context combines with product and technical behavior.
 
 ```text

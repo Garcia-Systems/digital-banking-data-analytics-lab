@@ -1,5 +1,7 @@
 # Chapter 18 — Baselines, Targets, and Before/After Analysis
 
+![Chapter 18 illustration](../images/chapters/chapter-18.png)
+
 Part IV made Harbor's fictional identity-verification integration a leading hypothesis. Engineers now deploy the synthetic `harbor-experience-next` change and ask: **Did observed behavior improve after the change?**
 
 ## Three different ideas

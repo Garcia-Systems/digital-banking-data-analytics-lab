@@ -1,5 +1,7 @@
 # Chapter 0 — From Application Data to Engineering Decisions
 
+![Chapter 0 illustration](../images/chapters/chapter-00.png)
+
 ## Why this matters
 
 Full-stack engineers shape both the digital experience and the evidence it leaves behind. A UI state, API response, vendor timeout, database query, and telemetry event are different views of the same journey. Without analytics, teams argue from anecdotes; with careful analytics, engineers can verify scale, locate conditions, form testable hypotheses, and decide what evidence to collect next.

@@ -1,5 +1,7 @@
 # Chapter 23 — The Harbor Federal Digital Experience Investigation
 
+![Chapter 23 illustration](../images/chapters/chapter-23.png)
+
 [← Chapter 22](22-communicating-findings-without-overclaiming.md) · [Contents](../CONTENTS.md) · [Review only after investigating](../docs/CAPSTONE_REVIEW.md)
 
 > **Harbor Digital Banking request:** “We've noticed that fewer digital account-opening applications seem to be reaching completion. Please investigate whether completion actually declined, where the change is concentrated, what technical evidence may explain it, what engineering should investigate or change, and how we would verify improvement.”

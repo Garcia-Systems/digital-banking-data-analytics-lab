@@ -1,5 +1,7 @@
 # Chapter 17 — Error and Incident Analytics
 
+![Chapter 17 illustration](../images/chapters/chapter-17.png)
+
 An **error** is one observation; a **recurring pattern** repeats; a **degradation** is worsened service evidence; an **incident** is a bounded event requiring coordinated attention. This analytics chapter asks what records show and where to investigate—not how to run incident response.
 
 Structured errors record component/category/severity, endpoint/provider, correlation, recoverability, and member visibility. They exclude payloads and sensitive stack values. Group over time, component, endpoint, and category; distinguish recovered from member-visible errors and compare a pattern with its historical baseline before calling it new.
